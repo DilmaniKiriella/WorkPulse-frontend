@@ -1,4 +1,4 @@
-import type { TaskData } from "./types"
+import type { TaskData } from "../../../types/Task"
 
 export const employees = ["John Smith", "Sarah Johnson", "Michael Brown", "Emily Davis", "David Wilson"]
 

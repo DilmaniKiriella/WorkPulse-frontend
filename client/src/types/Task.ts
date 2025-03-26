@@ -6,6 +6,9 @@ export interface TaskData {
   priority: string
   status: string
   deadline: string
-  createdAt: string
+  created: Date;
+  createdBy: string;
+  modified?: Date | null;
+  modifiedBy?: string | null;
 }
 

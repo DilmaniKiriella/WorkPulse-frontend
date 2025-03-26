@@ -3,8 +3,8 @@ export interface Announcement {
   title: string;
   description: string;
   tenantId: number;
-  created: string;
+  created: Date;
   createdBy: string;
-  modified?: string | null;
+  modified?: Date | null;
   modifiedBy?: string | null;
 }

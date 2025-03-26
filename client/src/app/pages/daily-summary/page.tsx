@@ -8,7 +8,7 @@ import { Label } from "@/components/TaskManagement/ui/label";
 import { Separator } from "@/components/TaskManagement/ui/separator";
 import { Badge } from "@/components/TaskManagement/ui/badge";
 import { Clock, Mail, Send } from "lucide-react";
-import type { TaskData } from "@/components/TaskManagement/lib/types";
+import type { TaskData } from "@/types/Task";
 import { formatDate } from "@/components/TaskManagement/lib/utils";
 import { Box, Container, Typography, Grid, Switch } from "@mui/material";
 

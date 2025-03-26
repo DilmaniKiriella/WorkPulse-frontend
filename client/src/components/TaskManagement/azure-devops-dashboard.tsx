@@ -1,12 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import Button from "@mui/material/Button"
 import { PlusCircle } from "lucide-react"
-import type { TaskData } from "@/lib/types"
+import type { TaskData } from "@/types/Task"
 import { Employees } from "@/app/data/Employee";
-import KanbanBoard from "@/components/TaskMangement/kanban-board"
-import { AddTaskModal } from "@/components/TaskMangement/AddTaskModal"
+import { AddTaskModal } from "@/components/TaskManagement/AddTaskModal"
 
 interface AzureDevOpsDashboardProps {
   tasks: TaskData[]
@@ -44,14 +43,16 @@ export default function AzureDevOpsDashboard({
           </div>
         </div>
 
-        <KanbanBoard tasks={tasks} onUpdateTask={onUpdateTask} onRemoveTask={onRemoveTask} />
-
         {/* Add Task Modal */}
       <AddTaskModal
         isOpen={isAddTaskModalOpen}
         onClose={() => setIsAddTaskModalOpen(false)}
-        onSave={(newTask: Omit<TaskData, "id" | "createdAt" | "logs">) => {
-          onAddTask(newTask)
+        onSave={(newTask: Omit<{ title: string; description: string; assignedTo: string; priority: string; status: string; deadline: string; }, "id" | "createdAt">) => {
+          onAddTask({
+            ...newTask,
+            created: new Date(),
+            createdBy: "currentUserId", // Replace with the actual current user ID
+          })
           setIsAddTaskModalOpen(false)
         }}
         employees={Employees} // Replace with the actual list of employees or fetch it dynamically
